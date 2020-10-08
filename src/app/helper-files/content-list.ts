@@ -14,12 +14,9 @@ export class ContentList {
 
   showContent(index: number) : string {
       let content = this._contents[index];
-      // Not sure how to render HTML
       if (content == null) {
-          return `<p>There is no content at ${index}.</p>`;
+          return `<h4 class="error" style="color:red;">Error. There is no content at ${index}.</h4>`;
       }
-      return `<h2>${content.title}</h2><img src="${content.imgUrl}"/><p>${content.body}</p>`;
-    // let test = "TEST";
-    // return "<div [innerHTML]=\"test\"></div>";
+      return `<h2>Title: ${content.title}</h2><h4>Author: ${content.author}</h4><img src="${content.imgUrl}"/><p>${content.body}</p>`;
   }
 }

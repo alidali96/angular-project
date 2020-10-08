@@ -7,7 +7,6 @@ import { ContentList } from '../helper-files/content-list';
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent implements OnInit {
-  title = "Hi Fadi!";
   contentList: ContentList = new ContentList();
 
   constructor() {

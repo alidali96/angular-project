@@ -1,6 +1,10 @@
+<!-- <style>
+    .error {
+        color: red;
+    }
+</style> -->
 <h1>Assignment 1</h1>
 
 
-{{contentList.showContent(0)}}
-<br><br>
-{{contentList.showContent(1)}}
+<div [innerHTML]="contentList.showContent(0)"></div>
+<div [innerHTML]="contentList.showContent(1)"></div>
