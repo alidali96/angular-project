@@ -1,3 +1,35 @@
 .error {
-    color: red;
+  color: red;
+}
+
+:host {
+  width: 80%;
+  display: block;
+  margin: 20px auto;
+  border: 2px dotted black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: azure;
+}
+
+:host.is-last {
+  border: 2px solid black;
+}
+
+.title {
+  font-size: 36px;
+  text-align: center;
+}
+
+.type,
+.tags {
+  font-size: 16px;
+}
+
+.content-image {
+  width: 100%;
+}
+
+p {
+    font-size: 18px;
 }

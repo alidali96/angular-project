@@ -1,0 +1,4 @@
+<app-content-card *ngFor="let content of contentList; index as i; last as isLast" [content]="content"
+                  class="content-list-{{i}}" [class.is-last]="isLast">
+                  {{ content }}
+</app-content-card>

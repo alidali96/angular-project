@@ -1,25 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { ContentList } from '../helper-files/content-list';
+import { Content } from '../helper-files/content-interface';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-content-card',
   templateUrl: './content-card.component.html',
-  styleUrls: ['./content-card.component.scss']
+  styleUrls: ['./content-card.component.scss'],
 })
 export class ContentCardComponent implements OnInit {
-  contentList: ContentList = new ContentList();
+  @Input() content: Content;
 
-  constructor() {
-    this.contentList.addContent({
-      id: 1,
-      author: "Ali",
-      title: "Angular",
-      body: "Article Body",
-      imgUrl: "https://www.stclaircollege.ca/sites/default/files/styles/article_images/public/articles/2020-09/20200904_130631%281%29.jpg",
-    });
-   }
+  constructor() {}
 
-  ngOnInit(): void {
+  onImageClick(id: number) {
+    console.log(`Image clicked: ${id}`);
   }
-
+  ngOnInit(): void {}
 }
