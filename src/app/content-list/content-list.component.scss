@@ -1,0 +1,21 @@
+.search input {
+    width: 50%;
+    font-size: 18px;
+    padding: 4px;
+    margin: 10px;
+  }
+  
+  button {
+    padding: 8px;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  .news {
+    border-color: red;
+  }
+  .action {
+    border-color: orange;
+  }

@@ -1,4 +1,16 @@
-<app-content-card *ngFor="let content of contentList; index as i; last as isLast" [content]="content"
-                  class="content-list-{{i}}" [class.is-last]="isLast">
+<div class="search">
+    <input #search placeholder="Search">
+    <button (click)="searchContent(search.value)">Search</button>
+</div>
+
+<app-content-card *ngFor="let content of (contentList | filterContent:'news'); " [content]="content"
+                  class="content-card {{content.type}}" >
                   {{ content }}
 </app-content-card>
+<app-content-card *ngFor="let content of (contentList | filterContent:'action'); " [content]="content"
+                  class="content-card {{content.type}}" >
+                  {{ content }}
+</app-content-card>
+
+<!-- <app-content-card *ngFor="let content of contentList; index as i; last as isLast" [content]="content" -->
+W

@@ -12,6 +12,11 @@ export class ContentListComponent implements OnInit {
   
   constructor() { }
 
+  searchContent(search:String):void{
+    let exist = this.contentList.find(content => content.title.toLowerCase() == search.toLowerCase());
+    alert(exist ? `${search} exist!` : `${search} does not exist!`);
+  }
+
   ngOnInit(): void {
     this.contentList = [
       {
@@ -56,7 +61,7 @@ export class ContentListComponent implements OnInit {
         body: 'Police say the 84-year-old man was crossing St. Clair Avenue West from the north curb to the south when he was struck by a blue SUV. According to police, the unidentified driver of the vehicle allegedly slowed down for a moment but then continued driving westbound and was last seen near Keele Street.',
         imgUrl: 'https://globalnews.ca/wp-content/uploads/2018/04/img_1177.jpg',
         tags: ['Police', 'Toronto', 'St. Clair'],
-        type: 'news'
+        type: 'action'
       },
       {
         id: 6,
@@ -65,7 +70,7 @@ export class ContentListComponent implements OnInit {
         body: 'Toronto police are hoping the public will be able to assist in identifying a suspect after a driver allegedly pulled a gun on a man and a woman after they asked him to slow down. Police said they received a call at around 4 p.m. on Thursday for reports of a person with a gun in the area of Yonge Street and St. Clair Avenue.',
         imgUrl: 'https://globalnews.ca/wp-content/uploads/2019/06/suspectvehicle1.png',
         tags: ['Police', 'Toronto', 'St. Clair'],
-        type: 'news'
+        type: 'action'
       },
     ];
   }
