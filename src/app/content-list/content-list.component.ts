@@ -59,7 +59,7 @@ export class ContentListComponent implements OnInit {
         author: 'Gabby Rodrigues',
         title:'84-year-old man dies in hospital after being hit by SUV in midtown Toronto',
         body: 'Police say the 84-year-old man was crossing St. Clair Avenue West from the north curb to the south when he was struck by a blue SUV. According to police, the unidentified driver of the vehicle allegedly slowed down for a moment but then continued driving westbound and was last seen near Keele Street.',
-        imgUrl: 'https://globalnews.ca/wp-content/uploads/2018/04/img_1177.jpg',
+        // imgUrl: 'https://globalnews.ca/wp-content/uploads/2018/04/img_1177.jpg',
         tags: ['Police', 'Toronto', 'St. Clair'],
         type: 'action'
       },
