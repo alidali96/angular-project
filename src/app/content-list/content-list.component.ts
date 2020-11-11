@@ -17,6 +17,14 @@ export class ContentListComponent implements OnInit {
     alert(exist ? `${search} exist!` : `${search} does not exist!`);
   }
 
+  addContentToList(newContentFromChild: Content): void {
+    this.contentList.push(newContentFromChild);
+    console.log("PUSHED " + this.contentList.length);
+    console.log("PUSHED " + newContentFromChild.title);
+    // We need to clone the array for the pipe to work
+    this.contentList = Object.assign([], this.contentList);
+  }
+
   ngOnInit(): void {
     this.contentList = [
       {

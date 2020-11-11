@@ -1,21 +1,28 @@
+div.search {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+}
+
 .search input {
-    width: 50%;
-    font-size: 18px;
-    padding: 4px;
-    margin: 10px;
-  }
-  
-  button {
-    padding: 8px;
-  }
+  width: 50%;
+  font-size: 18px;
+  padding: 4px;
+  margin: 10px;
+}
 
-  button:hover {
-    cursor: pointer;
-  }
+button {
+  padding: 8px;
+}
 
-  .news {
-    border-color: red;
-  }
-  .action {
-    border-color: orange;
-  }
+button:hover {
+  cursor: pointer;
+}
+
+.news {
+  border-color: red;
+}
+
+.action {
+  border-color: orange;
+}
