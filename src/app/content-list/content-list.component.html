@@ -9,6 +9,9 @@
                   class="content-card {{content.type}}" >
                   {{ content }}
 </app-content-card>
+
+<mat-divider></mat-divider>
+
 <app-content-card *ngFor="let content of (contentList | filterContent:'action'); " [content]="content"
                   class="content-card {{content.type}}" >
                   {{ content }}

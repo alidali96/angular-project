@@ -6,7 +6,7 @@
     body: string;
     tags?: string[];
 -->
-<div class="form">
+<!-- <div class="form">
     <h1>News</h1>
     <div class="form-group">
       <input #id class="form-control" id="id" name="id" placeholder="*Enter id" value="0" required />
@@ -37,4 +37,8 @@
       <div *ngIf="error" class="alert alert-danger" role="alert">
         <p>{{error}}</p>
       </div>
-  </div>
+  </div> -->
+
+
+  
+<button mat-flat-button color="accent" (click)="openAddNewsDialog()">[+] Add News</button>

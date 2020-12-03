@@ -1,7 +1,13 @@
 import { EventEmitter, Output } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { ContentService } from '../services/content.service';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogRef,
+} from '@angular/material/dialog';
+import { AddContentDialogComponent } from '../add-content-dialog/add-content-dialog.component';
 
 @Component({
   selector: 'app-create-content',
@@ -16,29 +22,44 @@ export class CreateContentComponent implements OnInit {
 
   error?: string;
 
-  constructor(private contentService: ContentService) {}
+  constructor(
+    private contentService: ContentService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {}
 
-  onAddNews(
-    title: string,
-    body: string,
-    author: string,
-    imgUrl: string,
-    type: string,
-    tags: string
-  ) {
-    this.newContent = {
-      id: 0,
-      title: title,
-      body: body,
-      author: author,
-      imgUrl: imgUrl,
-      type: type,
-      tags: [tags],
-    };
+  openAddNewsDialog(): void {
+    const newsDialog = this.dialog.open(AddContentDialogComponent, {
+      width: '600px',
+    });
+    newsDialog.afterClosed().subscribe((newsFromDialog) => {
+      console.log(newsFromDialog);
+      this.newContent = newsFromDialog;
+      if (this.newContent) {
+        this.onAddNews();
+        console.log(this.newContent);
+      }
+    });
+  }
 
-    if (body && title && author) {
+  onAddNews() {
+    // tags: string // type: string, // imgUrl: string, // author: string, // body: string, // title: string,
+    // this.newContent = {
+    //   id: 0,
+    //   title: title,
+    //   body: body,
+    //   author: author,
+    //   imgUrl: imgUrl,
+    //   type: type,
+    //   tags: [tags],
+    // };
+
+    if (
+      this.newContent.body &&
+      this.newContent.title &&
+      this.newContent.author
+    ) {
       this.error = undefined;
       this.contentService
         .addNewContent(this.newContent)
@@ -49,8 +70,10 @@ export class CreateContentComponent implements OnInit {
         });
     } else {
       this.error = `You need to add all required fields: ${
-        title ? '' : 'title'
-      } ${body ? '' : 'body'} ${author ? '' : 'author'}`;
+        this.newContent.title ? '' : 'title'
+      } ${this.newContent.body ? '' : 'body'} ${
+        this.newContent.author ? '' : 'author'
+      }`;
     }
 
     // let promiseToAddNews = new Promise((success, fail) => {
@@ -71,28 +94,26 @@ export class CreateContentComponent implements OnInit {
     //   .catch((failMessage) => console.log(failMessage));
   }
 
-  onUpdateNews(
-    id: string,
-    title: string,
-    body: string,
-    author: string,
-    imgUrl: string,
-    type: string,
-    tags: string
-  ) {
-    this.newContent = {
-      id: +id,
-      title: title,
-      body: body,
-      author: author,
-      imgUrl: imgUrl,
-      type: type,
-      tags: [tags],
-    };
+  onUpdateNews() {
+    // tags: string // type: string, // imgUrl: string, // author: string, // body: string, // title: string, // id: string,
+    // this.newContent = {
+    //   id: +id,
+    //   title: title,
+    //   body: body,
+    //   author: author,
+    //   imgUrl: imgUrl,
+    //   type: type,
+    //   tags: [tags],
+    // };
+    this.newContent.id = +this.newContent.id;
 
     console.log(this.newContent);
 
-    if (body && title && author) {
+    if (
+      this.newContent.body &&
+      this.newContent.title &&
+      this.newContent.author
+    ) {
       this.error = undefined;
       this.contentService
         .updateContent(this.newContent)
@@ -101,8 +122,10 @@ export class CreateContentComponent implements OnInit {
         });
     } else {
       this.error = `You need to add all required fields: ${
-        title ? '' : 'title'
-      } ${body ? '' : 'body'} ${author ? '' : 'author'}`;
+        this.newContent.title ? '' : 'title'
+      } ${this.newContent.body ? '' : 'body'} ${
+        this.newContent.author ? '' : 'author'
+      }`;
     }
   }
 }
