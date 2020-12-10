@@ -1,17 +1,18 @@
 <article class="content-{{ content.id }}">
   <h1 appHoverStyle [borderColor]="'#dd2727'" class="title">{{ content.title }}</h1>
   <p class="author"><strong>Author:</strong> {{ content.author }}</p>
-  <section>
+  <!-- <section>
     <div>
       <img *ngIf="content.imgUrl; else imageNotFound" src="{{ content.imgUrl }}" (click)="onImageClick(content.id)" class="content-image" />
       <ng-template #imageNotFound>
         <img src="https://kicksdigitalmarketing.com/wp-content/uploads/2019/09/iStock-1142986365.jpg" (click)="onImageClick(content.id)" class="content-image" />
       </ng-template>
     </div>
-  </section>
+  </section> -->
   <section>
-    <p class="body" *ngIf="content.body">{{ content.body }}</p>
+    <!-- <p class="body" *ngIf="content.body">{{ content.body }}</p> -->
     <p class="type" *ngIf="content.type"><strong>Type:</strong> {{ content.type }}</p>
     <p class="tags" *ngIf="content.tags"><strong>Tags:</strong> <span *ngFor="let tag of content.tags;" appHoverStyle [fontWeight]='"bold"'>{{ tag }} </span></p>
   </section>
+  <a mat-raised-button color="primary" routerLink="../content/{{ content.id }}" routerLinkActive="active">Read More</a>
 </article>

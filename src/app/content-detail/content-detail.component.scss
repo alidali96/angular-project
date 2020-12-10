@@ -1,0 +1,36 @@
+  :host {
+    display: block;
+    background-color: azure;
+  }
+
+  .title {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .type,
+  .tags {
+    font-size: 16px;
+  }
+
+  .content-image {
+    width: 100%;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  article {
+    // border: 2px dotted black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  a,
+  a:active,
+  a:hover {
+    text-decoration: none;
+  }
