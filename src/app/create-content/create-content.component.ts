@@ -8,6 +8,7 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { AddContentDialogComponent } from '../add-content-dialog/add-content-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-content',
@@ -24,7 +25,8 @@ export class CreateContentComponent implements OnInit {
 
   constructor(
     private contentService: ContentService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {}
@@ -60,6 +62,8 @@ export class CreateContentComponent implements OnInit {
       this.newContent.title &&
       this.newContent.author
     ) {
+      this.snackBar.open('News has been added!');
+
       this.error = undefined;
       this.contentService
         .addNewContent(this.newContent)

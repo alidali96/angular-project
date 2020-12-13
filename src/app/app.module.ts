@@ -21,8 +21,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import { AddContentDialogComponent } from './add-content-dialog/add-content-dialog.component';
 import { ContentDetailComponent } from './content-detail/content-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -49,13 +52,18 @@ import {RouterModule} from '@angular/router';
     MatInputModule,
     MatDialogModule,
     MatDividerModule,
+    MatSnackBarModule,
     FormsModule,
 
     RouterModule.forRoot([
       { path: 'content/:id', component: ContentDetailComponent },
       { path: 'content', component: ContentListComponent },
-      { path: '**', component: NotFoundComponent }
-    ])
+      { path: '**', component: NotFoundComponent },
+    ]),
+
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
   providers: [],
   entryComponents: [AddContentDialogComponent],
